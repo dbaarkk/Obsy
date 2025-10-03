@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSY - Premium Hoodie Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .image-section {
+            flex: 1;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-placeholder {
+            width: 80%;
+            height: 80%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .content-section {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .content-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #495057;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+        
+        .links {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .links a:hover {
+            color: #000;
+        }
+        
+        .links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            transition: width 0.3s;
+        }
+        
+        .links a:hover::after {
+            width: 100%;
+        }
+        
+        .buy-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: fit-content;
+            letter-spacing: 1px;
+        }
+        
+        .buy-button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            z-index: 10;
+        }
+        
+        .nav-button:hover {
+            background-color: rgba(0,0,0,0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .next-button {
+            right: 30px;
+        }
+        
+        .prev-button {
+            left: 30px;
+        }
+        
+        .page {
+            display: none;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .page.active {
+            display: flex;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .image-section {
+                min-height: 50vh;
+            }
+            
+            .content-section {
+                padding: 40px 30px;
+            }
+            
+            .content-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .content-section {
+                padding: 30px 20px;
+            }
+            
+            .content-section h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .next-button {
+                right: 15px;
+            }
+            
+            .prev-button {
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Luminous Shroud -->
+    <div class="page active" id="page1">
+        <div class="container">
+            <div class="image-section">
+                <div class="image-placeholder">
+                    [Your Image: 1000230580.jpg]
+                </div>
+                <button class="nav-button next-button" onclick="showPage('page2')">&gt;</button>
+            </div>
+            <div class="content-section">
+                <h1>OBSY</h1>
+                <h2>LUMINOUS SHROUD</h2>
+                <p>Step into immaculate comfort with the "Luminous Shroud" – a pure white hoodie robe blending serene minimalism with timeless elegance. Crafted from soft, premium fabric, this piece features a deep hood, adjustable drawstrings, and a relaxed silhouette secured by a belted waist. The crisp white hue symbolizes clarity and renewal, making this hoodie perfect for moments when tranquility and style converge.</p>
+                <div class="links">
+                    <a href="#">CONTACT</a>
+                    <a href="#">CART</a>
+                    <a href="#">ABOUT</a>
+                </div>
+                <button class="buy-button">BUY THIS HOODIE</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Page 2: Eclipse Mantle -->
+    <div class="page" id="page2">
+        <div class="container">
+            <div class="image-section">
+                <button class="nav-button prev-button" onclick="showPage('page1')">&lt;</button>
+                <div class="image-placeholder">
+                    [Your Image: 1000230581.jpg]
+                </div>
+            </div>
+            <div class="content-section">
+                <h1>OBSY</h1>
+                <h2>ECLIPSE MANTLE</h2>
+                <p>Embrace the allure of mystery with the "Eclipse Mantle" – a striking black hoodie robe designed for those who stride confidently through the shadows. This garment exudes understated power with its flowing cut, oversized hood, and matching belt closure. The intense black fabric captures an enigmatic vibe, inviting you to express your bold and adventurous side, whether indoors or out.</p>
+                <div class="links">
+                    <a href="#">CONTACT</a>
+                    <a href="#">CART</a>
+                    <a href="#">ABOUT</a>
+                </div>
+                <button class="buy-button">BUY THIS HOODIE</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
